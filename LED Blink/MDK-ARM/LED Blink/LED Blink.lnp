@@ -1,0 +1,21 @@
+--cpu Cortex-M3
+"led blink\startup_stm32f103xb.o"
+"led blink\main.o"
+"led blink\stm32f1xx_it.o"
+"led blink\stm32f1xx_hal_msp.o"
+"led blink\stm32f1xx_hal_gpio_ex.o"
+"led blink\stm32f1xx_hal.o"
+"led blink\stm32f1xx_hal_rcc.o"
+"led blink\stm32f1xx_hal_rcc_ex.o"
+"led blink\stm32f1xx_hal_gpio.o"
+"led blink\stm32f1xx_hal_dma.o"
+"led blink\stm32f1xx_hal_cortex.o"
+"led blink\stm32f1xx_hal_pwr.o"
+"led blink\stm32f1xx_hal_flash.o"
+"led blink\stm32f1xx_hal_flash_ex.o"
+"led blink\stm32f1xx_hal_exti.o"
+"led blink\system_stm32f1xx.o"
+--strict --scatter "LED Blink\LED Blink.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "LED Blink.map" -o "LED Blink\LED Blink.axf"

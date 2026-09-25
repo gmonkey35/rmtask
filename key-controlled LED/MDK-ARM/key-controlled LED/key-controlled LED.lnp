@@ -1,0 +1,21 @@
+--cpu Cortex-M3
+"key-controlled led\startup_stm32f103xb.o"
+"key-controlled led\main.o"
+"key-controlled led\stm32f1xx_it.o"
+"key-controlled led\stm32f1xx_hal_msp.o"
+"key-controlled led\stm32f1xx_hal_gpio_ex.o"
+"key-controlled led\stm32f1xx_hal.o"
+"key-controlled led\stm32f1xx_hal_rcc.o"
+"key-controlled led\stm32f1xx_hal_rcc_ex.o"
+"key-controlled led\stm32f1xx_hal_gpio.o"
+"key-controlled led\stm32f1xx_hal_dma.o"
+"key-controlled led\stm32f1xx_hal_cortex.o"
+"key-controlled led\stm32f1xx_hal_pwr.o"
+"key-controlled led\stm32f1xx_hal_flash.o"
+"key-controlled led\stm32f1xx_hal_flash_ex.o"
+"key-controlled led\stm32f1xx_hal_exti.o"
+"key-controlled led\system_stm32f1xx.o"
+--strict --scatter "key-controlled LED\key-controlled LED.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "key-controlled LED.map" -o "key-controlled LED\key-controlled LED.axf"

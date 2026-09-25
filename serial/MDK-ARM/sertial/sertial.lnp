@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"sertial\startup_stm32f103xb.o"
+"sertial\main.o"
+"sertial\stm32f1xx_it.o"
+"sertial\stm32f1xx_hal_msp.o"
+"sertial\stm32f1xx_hal_gpio_ex.o"
+"sertial\stm32f1xx_hal_uart.o"
+"sertial\stm32f1xx_hal.o"
+"sertial\stm32f1xx_hal_rcc.o"
+"sertial\stm32f1xx_hal_rcc_ex.o"
+"sertial\stm32f1xx_hal_gpio.o"
+"sertial\stm32f1xx_hal_dma.o"
+"sertial\stm32f1xx_hal_cortex.o"
+"sertial\stm32f1xx_hal_pwr.o"
+"sertial\stm32f1xx_hal_flash.o"
+"sertial\stm32f1xx_hal_flash_ex.o"
+"sertial\stm32f1xx_hal_exti.o"
+"sertial\system_stm32f1xx.o"
+--strict --scatter "sertial\sertial.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "sertial.map" -o sertial\sertial.axf
