@@ -3,7 +3,8 @@ name: sertial
 type: ARM
 deviceName: null
 packDir: null
-srcDirs: []
+srcDirs:
+  - ../Core
 virtualFolder:
   name: <virtual_root>
   files: []
@@ -23,29 +24,29 @@ virtualFolder:
                 - path: ../Core/Src/main.c
                 - path: ../Core/Src/stm32f1xx_it.c
                 - path: ../Core/Src/stm32f1xx_hal_msp.c
-              folders: []
-    - name: Drivers
-      files: []
-      folders:
-        - name: STM32F1xx_HAL_Driver
-          files:
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c
-            - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c
-          folders: []
-        - name: CMSIS
-          files:
-            - path: ../Core/Src/system_stm32f1xx.c
-          folders: []
+              folders:
+                - name: Drivers
+                  files: []
+                  folders:
+                    - name: STM32F1xx_HAL_Driver
+                      files:
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c
+                        - path: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c
+                      folders: []
+                    - name: CMSIS
+                      files:
+                        - path: ../Core/Src/system_stm32f1xx.c
+                      folders: []
 dependenceList: []
 outDir: build
 miscInfo:

@@ -43,7 +43,7 @@
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+uint8_t recieveData[2];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -56,7 +56,28 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    HAL_UART_Transmit_IT(&huart2, recieveData, 2);
+    GPIO_PinState state =GPIO_PIN_SET;
+    if(recieveData[1]=='0')
+    {
+      state = GPIO_PIN_RESET;
+    }
+    if(recieveData[0]=='R')
+    {
+      HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, state);
+    }
+    else if(recieveData[0]=='G')
+    {
+      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, state);
+    }
+    else if(recieveData[0]=='B')
+    {
+      HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, state);
+    }
+  HAL_UART_Receive_IT(&huart2, recieveData, 2);  
+}
 /* USER CODE END 0 */
 
 /**
@@ -90,32 +111,14 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t recieveData[2];
+  HAL_UART_Receive_IT(&huart2, recieveData, 2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_UART_Receive(&huart2, recieveData, 2, HAL_MAX_DELAY);
-    HAL_UART_Transmit(&huart2, recieveData, 2, 100);
-    GPIO_PinState state =GPIO_PIN_SET;
-    if(recieveData[1]=='0')
-    {
-      state = GPIO_PIN_RESET;
-    }
-    if(recieveData[0]=='R')
-    {
-      HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, state);
-    }
-    else if(recieveData[0]=='G')
-    {
-      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, state);
-    }
-    else if(recieveData[0]=='B')
-    {
-      HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, state);
-    }
+    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -200,7 +203,6 @@ static void MX_USART2_UART_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-
   /* USER CODE BEGIN MX_GPIO_Init_1 */
 
   /* USER CODE END MX_GPIO_Init_1 */
@@ -210,7 +212,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin|LED_RED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_GREEN_Pin|LED_RED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, GPIO_PIN_RESET);
@@ -220,7 +222,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_GREEN_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LED_BLUE_Pin */
   GPIO_InitStruct.Pin = LED_BLUE_Pin;

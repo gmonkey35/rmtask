@@ -2,6 +2,12 @@
     "folders": [
         {
             "path": "."
+        },
+        {
+            "path": "../Core"
+        },
+        {
+            "path": "../Drivers"
         }
     ],
     "settings": {
@@ -12,6 +18,7 @@
         "files.autoGuessEncoding": true,
         "C_Cpp.default.configurationProvider": "cl.eide",
         "C_Cpp.errorSquiggles": "disabled",
+        "C_Cpp.intelliSenseEngine": "default",
         "files.associations": {
             ".eideignore": "ignore",
             "*.a51": "a51",
@@ -28,7 +35,8 @@
             "editor.insertSpaces": true,
             "editor.tabSize": 4,
             "editor.autoIndent": "advanced"
-        }
+        },
+        "stm32cube-ide-clangd.path": "cube"
     },
     "extensions": {
         "recommendations": [
