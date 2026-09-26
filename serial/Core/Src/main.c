@@ -110,6 +110,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
     }
   }
   HAL_UARTEx_ReceiveToIdle_DMA(&huart2, recieveData, sizeof(recieveData));
+  __HAL_DMA_DISABLE_IT(&hdma_usart2_rx,DMA_IT_HT);
 }
 
 /* USER CODE END 0 */
@@ -147,6 +148,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_UARTEx_ReceiveToIdle_DMA(&huart2, recieveData, sizeof(recieveData));
+  __HAL_DMA_DISABLE_IT(&hdma_usart2_rx,DMA_IT_HT);
   /* USER CODE END 2 */
 
   /* Infinite loop */
